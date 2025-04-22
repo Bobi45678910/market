@@ -1,0 +1,22 @@
+{% extends 'layout/base.html' %}
+
+{% block title %} Регистрация {% endblock %}
+
+{% block content %}
+    <h1>Регистрация нового пользователя</h1> <br> <br>
+    {% if error %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" class="form-control" name="username" placeholder="Логин"> <br>
+        <input type="text" class="form-control" name="first_name" placeholder="Имя"> <br>
+        <input type="text" class="form-control" name="last_name" placeholder="Фамилия"> <br>
+        <input type="email" class="form-control" name="email" placeholder="Почта"> <br>
+        <input type="password" class="form-control" name="password" placeholder="Пароль"> <br>
+        <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+    </form>
+{% endblock %}

@@ -3,11 +3,12 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from apps.core.models.managers.UserManager import UserManager
+from config.constants import NULLABLE
 
 
 class User(AbstractUser):
-    username = models.CharField(_('username'), max_length=150, null=True, blank=True)
     email = models.EmailField(_('email address'), unique=True)
+    phone = models.CharField("Номер телфона", max_length=20, **NULLABLE)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []

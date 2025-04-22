@@ -1,8 +1,8 @@
-from django.urls import path, include
-
+from django.urls import include, path
 
 app_name = 'core'
 
 urlpatterns = [
-    #  path('some/', include('apps.core.urls.some_urls')),
+    path('', include('apps.core.urls.core_urls')),
+    path('auth/', include('apps.core.urls.auth_urls')),
 ]
