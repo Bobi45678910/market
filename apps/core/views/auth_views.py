@@ -28,11 +28,10 @@ def register_view(request):
     context = {}
     if request.method == 'POST':
         data = request.POST
-        if User.objects.filter(username=data['username']).exists():
+        if User.objects.filter(username=data['email']).exists():
             context['error'] = 'Такой пользователь уже существует!'
         else:
             User.objects.create(
-                username=data['username'],
                 first_name=data['first_name'],
                 last_name=data['last_name'],
                 email=data['email'],
