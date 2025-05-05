@@ -18,7 +18,8 @@ INSTALLED_APPS = [
 
     'apps.core.apps.CoreConfig',
     'apps.chat.apps.ChatConfig',
-    'apps.mart.apps.MartConfig'
+    'apps.mart.apps.MartConfig',
+    'apps.dashboard.apps.DashboardConfig'
 ]
 
 MIDDLEWARE = [
