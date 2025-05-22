@@ -13,7 +13,7 @@ class Chat(models.Model):
         on_delete=models.CASCADE,
         related_name='chats'
     )
-
+    # TODO: ЗАМЕНИТЬ FROM_USER И TO_USER  ЧТОБЫ БЫЛО MANY TO MANY
     from_user = models.ForeignKey(
         "core.User",
         verbose_name='Отправитель',

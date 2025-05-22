@@ -1,8 +1,7 @@
-from django.urls import path, include
-
+from django.urls import include, path
 
 app_name = 'mart'
 
 urlpatterns = [
-    #  path('some/', include('apps.mart.urls.some_urls')),
+    path('ad/', include('apps.mart.urls.ad_urls')),
 ]
