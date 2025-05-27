@@ -1,0 +1,21 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-body">
+      <h2>{{ ad.name }}</h2>
+      <p><strong>Категория:</strong> {{ ad.category.name }}</p>
+      <p><strong>Город:</strong> {{ ad.city }}</p>
+      <p><strong>Описание:</strong> {{ ad.despcription }}</p>
+      <p><strong>Цена:</strong> {{ ad.price }} ₽</p>
+      <p><strong>Дата размещения:</strong> {{ ad.created_at|date:"d.m.Y H:i" }}</p>
+      {% if ad.is_sold %}
+        <span class="badge bg-secondary">Продано</span>
+      {% elif not ad.is_active %}
+        <span class="badge bg-warning">Не активно</span>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

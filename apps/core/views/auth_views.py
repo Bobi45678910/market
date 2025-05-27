@@ -35,6 +35,7 @@ def register_view(request):
                 first_name=data['first_name'],
                 last_name=data['last_name'],
                 email=data['email'],
+                username=data['email'],
                 password=make_password(data['password']),
             )
             return redirect('core:login')

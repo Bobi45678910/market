@@ -1,0 +1,24 @@
+
+<h1>Мои объявления</h1>
+
+{% if ads %}
+    <ul>
+        {% for ad in ads %}
+            <li>
+                <strong>{{ ad.name }}</strong> — {{ ad.price }} ₽ <br>
+                Категория: {{ ad.category.name }}<br>
+                Город: {{ ad.city.name }}<br>
+                Описание: {{ ad.despcription }}<br>
+                Статус: 
+                {% if ad.is_sold %}
+                    Продано ({{ ad.sold_at|date:"d.m.Y H:i" }})
+                {% else %}
+                    Активно
+                {% endif %}
+                <hr>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>У вас пока нет объявлений.</p>
+{% endif %}

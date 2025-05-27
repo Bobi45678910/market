@@ -1,0 +1,28 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2>Объявления в категории: {{ category.name }}</h2>
+
+  {% if ads %}
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      {% for ad in ads %}
+        <div class="col">
+          <a href="{% url 'mart:ad_detail' ad.id %}" class="text-decoration-none text-dark">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">{{ ad.name }}</h5>
+                <p class="card-text">{{ ad.despcription|truncatechars:100 }}</p>
+                <p class="card-text"><strong>Цена:</strong> {{ ad.price }} ₽</p>
+                <p class="card-text"><strong>Город:</strong> {{ ad.city.name }}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>В этой категории пока нет объявлений.</p>
+  {% endif %}
+</div>
+{% endblock %}
