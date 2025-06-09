@@ -27,6 +27,7 @@
               Привет, {{ user.username }}
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+              <li><a class="dropdown-item" href="{% url 'core:edit_profile' %}">Редактировать профиль</a></li>
               <li><a class="dropdown-item" href="{% url 'mart:ads_user' %}">Мои объявления</a></li>
               <li><a class="dropdown-item" href="{% url 'mart:create_ad' %}">Создать объявление</a></li>
               <li><hr class="dropdown-divider"></li>

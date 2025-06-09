@@ -1,0 +1,20 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2>Подкатегории: {{ category.name }}</h2>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for subcategory in subcategories %}
+      <div class="col">
+        <a href="{% url 'mart:ads_category' subcategory.id %}" class="text-decoration-none text-dark">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">{{ subcategory.name }}</h5>
+            </div>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
